@@ -1,0 +1,23 @@
+#!/bin/bash
+
+update_governor() {
+  if [ "$1" == "powersave" ]; then
+    pkexec auto-cpufreq --force=performance
+  elif [ "$1" == "performance" ]; then
+    pkexec auto-cpufreq --force=powersave
+else
+    echo "Unknown governor: $1"
+  fi
+}
+
+governor=$(cpufreqctl.auto-cpufreq --governor --core=0)
+if [ "$1" == "update" ]; then
+  update_governor ${governor}
+fi
+
+if [ "${governor}" == "performance" ]; then
+  echo "🏎"
+else
+  echo "🐌"
+fi
+

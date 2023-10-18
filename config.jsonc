@@ -1,0 +1,8 @@
+"custom/auto_cpufreq" : {
+  "format" : "{}",
+  "exec": "~/.config/waybar/scripts/auto-cpufreq",
+  "on-click": "~/.config/waybar/scripts/auto-cpufreq update",
+  "interval": 10,
+  "tooltip": true,
+  "tooltip-format": "Click to switch CPU profile"
+},
